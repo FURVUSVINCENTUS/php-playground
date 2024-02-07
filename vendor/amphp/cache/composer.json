@@ -1,0 +1,48 @@
+{
+    "name": "amphp/cache",
+    "homepage": "https://github.com/amphp/cache",
+    "description": "A promise-aware caching API for Amp.",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/amphp/cache/issues"
+    },
+    "authors": [
+        {
+            "name": "Niklas Keller",
+            "email": "me@kelunik.com"
+        },
+        {
+            "name": "Aaron Piotrowski",
+            "email": "aaron@trowski.com"
+        },
+        {
+            "name": "Daniel Lowrey",
+            "email": "rdlowrey@php.net"
+        }
+    ],
+    "require": {
+        "php": ">=8",
+        "amphp/amp": "^3",
+        "amphp/serialization": "^1",
+        "amphp/sync": "^2",
+        "revolt/event-loop": "^0.2"
+    },
+    "require-dev": {
+        "amphp/phpunit-util": "^3",
+        "phpunit/phpunit": "^9",
+        "amphp/php-cs-fixer-config": "^2-dev",
+        "psalm/phar": "^4.15"
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Amp\\Cache\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Amp\\Cache\\Test\\": "test"
+        }
+    }
+}

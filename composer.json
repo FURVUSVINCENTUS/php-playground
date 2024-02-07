@@ -1,0 +1,23 @@
+{
+    "name": "amphptest/server",
+    "description": "Test d'un serveur asynchrone avec amphp/socket",
+    "type": "project",
+    "require": {
+	"php": "^^8.2",
+        "amphp/socket": "^2.0@beta",
+        "revolt/event-loop": "^0.2.4",
+        "chillerlan/php-qrcode": "5.0.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "amphptest\\server\\": "htdocs/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vicente Crestani"
+        }
+    ],
+    "minimum-stability": "dev"
+}
