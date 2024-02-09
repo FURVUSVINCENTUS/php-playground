@@ -103,7 +103,7 @@ $qrOutputInterface = new QRImageWithLogo($options, $qrcode->getQRMatrix());
 
 // dump the output, with an additional logo
 // the logo could also be supplied via the options, see the svgWithLogo example
-$out = $qrOutputInterface->dump(null, __DIR__.'/octocat.webp');
+$out = $qrOutputInterface->dump("qrArcticle.webp", __DIR__.'/inventaire-d.webp');
 
 
 header('Content-type: image/webp');
