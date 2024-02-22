@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['new_phrase'])){
   ob_start();
-  echo (readfile('cache/phrases.html')."\n<li>".filter_input(INPUT_POST ,'new_phrase', FILTER_DEFAULT)."</li>");
+  echo (readfile('cache/phrases.html')."\n<li><a href='".$_POST['link']."'>".filter_input(INPUT_POST ,'new_phrase', FILTER_DEFAULT)."</a></li>");
   $tampon = ob_get_contents();
   //stockage du tampon dans une chaîne de chars
   file_put_contents('cache/phrases.html', $tampon);
@@ -16,8 +16,10 @@ if(isset($_POST['new_phrase'])){
   </head>
   <body>
     <h1>Cas d'utilisation</h1>
+    <p> <em>Ajoute un nouveau lien.</em> </p>
     <form action="ob_start_test.php" method="post">
-      <input type="text" name="new_phrase" value=""/>
+      <input type="text" name="new_phrase" placeholder="text" value=""/>
+      <input type="text" name="link" placeholder="https://exemple.com" value=""/>
       <input type="submit" value="Add"/>
     </form>
     <ol type="I">
