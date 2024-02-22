@@ -1,12 +1,13 @@
 <?php
-ob_start();
 if(isset($_POST['new_phrase'])){
-
-}
-  $tampon = htmlspecialchars(ob_get_contents(), FILTER_DEFAULT); //stockage du tampon dans une chaîne de chars
+  ob_start();
+  echo (readfile('cache/phrases.html')."\n<li>".filter_input(INPUT_POST ,'new_phrase', FILTER_DEFAULT)."</li>");
+  $tampon = ob_get_contents();
+  //stockage du tampon dans une chaîne de chars
+  file_put_contents('cache/phrases.html', $tampon);
   ob_end_clean();
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -19,6 +20,10 @@ if(isset($_POST['new_phrase'])){
       <input type="text" name="new_phrase" value=""/>
       <input type="submit" value="Add"/>
     </form>
-    <p><?php echo $tampon; ?></p>
+    <ol type="I">
+      <?php
+        readfile('cache/phrases.html');
+      ?>
+    </ol>
   </body>
 </html>
