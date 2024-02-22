@@ -1,4 +1,6 @@
 <?php
+// ob_start/clean/en_clean/flush/end_flush ...https://www.php.net/manual/fr/ref.outcontrol.php
+// Fonctions de bufferisation de sortie
 if(isset($_POST['new_phrase'])){
   ob_start();
   echo (readfile('cache/phrases.html')."\n<li><a href='".$_POST['link']."'>".filter_input(INPUT_POST ,'new_phrase', FILTER_DEFAULT)."</a></li>");
@@ -8,11 +10,14 @@ if(isset($_POST['new_phrase'])){
   file_put_contents('cache/phrases.html', ob_get_contents());
   ob_end_clean();
 }
+
+// apcu_add/fetch/strore/cache_info... https://www.php.net/manual/fr/ref.apcu.php
+// Fonctions APCu
 $code_id = 702;
 $tries = 10;
 
 $key = strval($tries);
-apcu_store(strval($code_id), $key);
+apcu_store(strval($code_id), $key); //
 var_dump(apcu_fetch($code_id));
 print_r(apcu_cache_info());
 exit;
