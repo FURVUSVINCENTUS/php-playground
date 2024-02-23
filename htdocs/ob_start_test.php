@@ -15,12 +15,19 @@ if(isset($_POST['new_phrase'])){
 // Fonctions APCu
 $code_id = 702;
 $tries = 10;
+$cached = null;
 
 $key = strval($tries);
-apcu_store(strval($code_id), $key); //
-var_dump(apcu_fetch($code_id));
-print_r(apcu_cache_info());
-exit;
+apcu_store(strval($code_id), $key); // enregistrement des essais dans un tableau identifier par la valeur de $code_id
+$cached = apcu_fetch($code_id);
+// test d'équivalence entre les valeurs récupérées et les valeurs locales
+if($tries == $cached){
+  echo "Fetched tries successfully! 701 made ".$cached." tries.";
+} else {
+  echo "Try again!";
+}
+//print_r(apcu_cache_info());
+//exit;
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
